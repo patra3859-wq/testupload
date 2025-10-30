@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>wesd | Flipbook Viewer</title>
+
+  <script src='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/jquery-3.6.0.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/jquery-ui.min.js'></script>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/dflip.min.css'/>
+  <script src='https://www.dearflip.com/wp-content/plugins/dflip/assets/js/dflip.min.js'></script>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css'>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #container {
+      width: 100%;
+      height: calc(100% - 140px);
+    }
+
+    footer {
+      width: 100%;
+      height: 140px;
+      background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-top: 2px solid #333;
+      box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    #studioName {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #00d0ff;
+      text-shadow: 0 0 8px #00aaff;
+    }
+
+    #studioAddress {
+      font-size: 14px;
+      color: #ccc;
+      margin-top: 4px;
+    }
+
+    .social-buttons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .social-buttons button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+      border: 1px solid #333;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    }
+
+    .social-buttons button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
+
+    .social-buttons .facebook {
+      background: linear-gradient(135deg, #1877f2, #145dbf);
+    }
+
+    .social-buttons .youtube {
+      background: linear-gradient(135deg, #ff0000, #cc0000);
+    }
+
+    .social-buttons .whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+    }
+
+    .social-buttons button i {
+      font-size: 16px;
+    }
+
+    audio {
+      margin-top: 10px;
+      width: 200px;
+      filter: drop-shadow(0 0 4px #00d0ff);
+    }
+  </style>
+</head>
+
+<body>
+  <div id='container'></div>
+
+  <footer>
+    <div id='studioName'></div>
+    <div id='studioAddress'></div>
+    <div class='social-buttons'>
+      <button class='facebook' onclick="window.open('', '_blank')"><i class='fab fa-facebook-f'></i> Facebook</button>
+      <button class='youtube' onclick="window.open('', '_blank')"><i class='fab fa-youtube'></i> YouTube</button>
+      <button class='whatsapp' onclick="window.open('', '_blank')"><i class='fab fa-whatsapp'></i> WhatsApp</button>
+    </div>
+    <audio id='audioPlayer' controls>
+      <source src='audio.mp3' type='audio/mpeg'>
+      Your browser does not support audio playback.
+    </audio>
+  </footer>
+
+  <script type='text/javascript'>
+    jQuery(document).ready(function () {
+      var pdf = 'https://cdn.jsdelivr.net/gh/patra3859-wq/testupload/wesd.PDF';
+      var options = {
+        webgl: true,
+        webglShadow: true,
+        soundEnable: false,
+        width: '100%',
+        height: '100%',
+        enableDownload: false,
+        hideControls: true,
+        direction: DFLIP.DIRECTION.LTR,
+        pageMode: DFLIP.PAGE_MODE.AUTO,
+        singlePageMode: DFLIP.SINGLE_PAGE_MODE.AUTO
+      };
+      $('#container').flipBook(pdf, options);
+    });
+  </script>
+</body>
+</html>
