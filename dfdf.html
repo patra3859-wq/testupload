@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>dfdf | Flipbook Viewer</title>
+
+  <!-- jQuery & DFlip -->
+  <script src='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/jquery-3.6.0.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/jquery-ui.min.js'></script>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/dflip.min.css'/>
+  <script src='https://www.dearflip.com/wp-content/plugins/dflip/assets/js/dflip.min.js'></script>
+
+  <!-- Icons -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'/>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    #container {
+      width: 100%;
+      height: 100%;
+    }
+    /* --- Studio Info Box --- */
+    .studio-info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #fff;
+      z-index: 1000;
+      background: rgba(0,0,0,0.6);
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .studio-info h2 {
+      margin: 0;
+      font-size: 18px;
+      color: #00bcd4;
+    }
+    /* --- Social Buttons --- */
+    .social {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+      z-index: 1000;
+    }
+    .social a {
+      color: white;
+      background: rgba(0,0,0,0.6);
+      padding: 10px;
+      border-radius: 50%;
+      transition: 0.3s;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    .social a:hover {
+      background: #00bcd4;
+      color: #111;
+    }
+    /* --- Audio Button --- */
+    .audio-control {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 10px 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Studio Information -->
+  <div class='studio-info'>
+    <h2>My Studio Name</h2>
+    <p>123, Studio Street, Your City</p>
+  </div>
+
+  <!-- Audio Button -->
+  <div class='audio-control' id='audioBtn'>
+    <i class='fa fa-play'></i>
+  </div>
+
+  <!-- Social Media Buttons -->
+  <div class='social'>
+    <a href='https://facebook.com/YourPage' target='_blank'><i class='fab fa-facebook-f'></i></a>
+    <a href='https://youtube.com/YourChannel' target='_blank'><i class='fab fa-youtube'></i></a>
+    <a href='https://wa.me/YourNumber' target='_blank'><i class='fab fa-whatsapp'></i></a>
+  </div>
+
+  <!-- Flipbook Container -->
+  <div id='container'></div>
+
+  <!-- Audio -->
+  <audio id='bgMusic' loop>
+    <source src='https://cdn.jsdelivr.net/gh/YourGithubUser/YourRepo/background.mp3' type='audio/mpeg'>
+  </audio>
+
+  <script type='text/javascript'>
+    jQuery(document).ready(function () {
+      // Flipbook Load
+      var pdf = 'https://cdn.jsdelivr.net/gh/patra3859-wq/testupload/dfdf.PDF';
+      var options = {
+        webgl: true,
+        webglShadow: true,
+        soundEnable: false,
+        width: '100%',
+        height: '100%',
+        enableDownload: false,
+        direction: DFLIP.DIRECTION.LTR,
+        pageMode: DFLIP.PAGE_MODE.AUTO,
+        singlePageMode: DFLIP.SINGLE_PAGE_MODE.AUTO
+      };
+      $('#container').flipBook(pdf, options);
+
+      // --- Audio Play / Pause ---
+      var audio = document.getElementById('bgMusic');
+      var btn = document.getElementById('audioBtn');
+      btn.addEventListener('click', function() {
+       
+       
+      });
+    });
+  </script>
+</body>
+</html>
