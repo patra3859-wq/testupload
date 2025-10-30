@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>eswdfwes | Flipbook Viewer</title>
+
+  <script src='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/jquery-3.6.0.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/jquery-ui.min.js'></script>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/dflip.min.css'/>
+  <script src='https://www.dearflip.com/wp-content/plugins/dflip/assets/js/dflip.min.js'></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    #container {
+      width: 100%;
+      height: calc(100% - 120px);
+    }
+    footer {
+      width: 100%;
+      height: 120px;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-top: 2px solid #444;
+    }
+    .social-buttons button {
+      background: #333;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      margin: 4px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    .social-buttons button:hover {
+      background: #555;
+    }
+    audio {
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='container'></div>
+
+  <footer>
+    <div id='studioName'>STUDIO LINE </div>
+    <div id='studioAddress'>Tararui, Dantn,72141</div>
+    <div class='social-buttons'>
+      <button onclick="window.open('https://www.facebook.com/', '_blank')">Facebook</button>
+      <button onclick="window.open('https://www.youtube.com/feed/history', '_blank')">YouTube</button>
+      <button onclick="window.open('https://web.whatsapp.com/', '_blank')">WhatsApp</button>
+    </div>
+    <audio id='audioPlayer' controls>
+      <source src='audio.mp3' type='audio/mpeg'>
+      Your browser does not support audio playback.
+    </audio>
+  </footer>
+
+  <script type='text/javascript'>
+    jQuery(document).ready(function () {
+      var pdf = 'https://cdn.jsdelivr.net/gh/patra3859-wq/testupload/eswdfwes.PDF';
+      var options = {
+        webgl: true,
+        webglShadow: true,
+        soundEnable: false,
+        width: '100%',
+        height: '100%',
+        enableDownload: false,
+        direction: DFLIP.DIRECTION.LTR,
+        pageMode: DFLIP.PAGE_MODE.AUTO,
+        singlePageMode: DFLIP.SINGLE_PAGE_MODE.AUTO,
+        hideControls: true
+      };
+      $('#container').flipBook(pdf, options);
+    });
+  </script>
+</body>
+</html>
