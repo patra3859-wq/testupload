@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang='en'>
+    <meta charset='UTF-8'>
+	<script src='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/jquery-3.6.0.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/jquery-ui.min.js'></script>
+	<script src='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/js/dflip.min.js'></script>
+    <title>aManas30-10-2025</title>
+</head>
+
+<body style="background:url('https://cdn.jsdelivr.net/gh/patra3859-wq/testupload/bk.jpg'); background-repeat:no-repeat; background-size:cover; background-position:center center;">
+<div class='container' id='container'></div>
+
+<script type='text/javascript'>
+var flipBook;
+jQuery(document).ready(function () {
+    var pdf = 'https://cdn.jsdelivr.net/gh/patra3859-wq/testupload/aManas30-10-2025.PDF';
+    var options = {
+        webgl: true,
+        webglShadow: true,
+        soundEnable: false,
+        width: '1280',
+        height: '703',
+        autoEnableOutline: false,
+        autoEnableThumbnail: false,
+        overwritePDFOutline: false,
+        enableDownload: false,
+        duration: 800,
+        direction: DFLIP.DIRECTION.LTR,
+        pageMode: DFLIP.PAGE_MODE.AUTO,
+        singlePageMode: DFLIP.SINGLE_PAGE_MODE.AUTO,
+        backgroundColor: 'none',
+        forceFit: true,
+        transparent: true,
+        hard: 'none',
+        annotationClass: '',
+        autoPlay: true,
+        autoPlayDuration: 5000,
+        autoPlayStart: true,
+        maxTextureSize: 1600,
+        minTextureSize: 256,
+        rangeChunkSize: 524288,
+        scrollWheel: true,
+        zoomRatio: 1.5,
+        pageSize: DFLIP.PAGE_SIZE.AUTO,
+        pdfjsSrc: 'js/libs/pdf.min.js',
+        pdfjsCompatibilitySrc: 'js/libs/compatibility.js',
+        pdfjsWorkerSrc: 'js/libs/pdf.worker.min.js',
+        threejsSrc: 'js/libs/three.min.js',
+        mockupjsSrc: 'js/libs/mockup.min.js',
+        imagesLocation: 'images',
+        imageResourcesPath: 'images/pdfjs/',
+        cMapUrl: 'cmaps/',
+        enableDebugLog: false,
+        canvasToBlob: false,
+        enableAnnotation: false,
+        pdfRenderQuality: 0.90,
+        textureLoadFallback: 'blank',
+        stiffness: 3,
+        pageRatio: null,
+        pixelRatio: window.devicePixelRatio || 1,
+        thumbElement: 'div',
+        spotLightIntensity: 0.22,
+        ambientLightColor: '#fff',
+        ambientLightIntensity: 0.8,
+        shadowOpacity: 0.15
+    };
+    flipBook = $('#container').flipBook(pdf, options);
+});
+</script>
+
+</body>
+</html>
