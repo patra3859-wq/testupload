@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>ee | Flipbook Viewer</title>
+
+  <!-- jQuery & DFlip -->
+  <script src='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/jquery-3.6.0.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/jquery-ui.min.js'></script>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/patra3859-wq/PDFCODE/dflip.min.css'/>
+  <script src='https://www.dearflip.com/wp-content/plugins/dflip/assets/js/dflip.min.js'></script>
+
+  <!-- Icons -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'/>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    #container {
+      width: 100%;
+      height: 100%;
+    }
+    .studio-info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #fff;
+      z-index: 1000;
+      background: rgba(0,0,0,0.6);
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .studio-info h2 {
+      margin: 0;
+      font-size: 18px;
+      color: #00bcd4;
+    }
+    .social {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+      z-index: 1000;
+    }
+    .social a {
+      color: white;
+      background: rgba(0,0,0,0.6);
+      padding: 10px;
+      border-radius: 50%;
+      transition: 0.3s;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    .social a:hover {
+      background: #00bcd4;
+      color: #111;
+    }
+    .audio-control {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 10px 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='studio-info'>
+    <h2></h2>
+    <p></p>
+  </div>
+
+  <div class='audio-control' id='audioBtn'>
+    <i class='fa fa-play'></i>
+  </div>
+
+  <div class='social'>
+    <a href='' target='_blank'><i class='fab fa-facebook-f'></i></a>
+    <a href='' target='_blank'><i class='fab fa-youtube'></i></a>
+    <a href='' target='_blank'><i class='fab fa-whatsapp'></i></a>
+  </div>
+
+  <div id='container'></div>
+
+  <audio id='bgMusic' loop>
+    <source src='' type='audio/mpeg'>
+  </audio>
+
+  <script type='text/javascript'>
+    jQuery(document).ready(function () {
+      var pdf = 'https://cdn.jsdelivr.net/gh/patra3859-wq/testupload/ee.PDF';
+      var options = {
+        webgl: true,
+        webglShadow: true,
+        soundEnable: false,
+        width: '100%',
+        height: '100%',
+        enableDownload: false,
+        direction: DFLIP.DIRECTION.LTR,
+        pageMode: DFLIP.PAGE_MODE.AUTO,
+        singlePageMode: DFLIP.SINGLE_PAGE_MODE.AUTO
+      };
+  
+        }
+      });
+    });
+  </script>
+</body>
+</html>
